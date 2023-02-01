@@ -47,26 +47,26 @@ public class Customer {
         return result
     }
 
-    private func amountFor(_ each: Rental) -> Double {
-        var thisAmount = 0.0
-        switch each.getMovie().getPriceCode() {
+    private func amountFor(_ aRental: Rental) -> Double {
+        var result = 0.0
+        switch aRental.getMovie().getPriceCode() {
             case Movie.REGULAR:
-                thisAmount += 2
-                if each.getDaysRented() > 2 {
-                    thisAmount += Double((each.getDaysRented() - 2)) * 1.5
+                result += 2
+                if aRental.getDaysRented() > 2 {
+                    result += Double((aRental.getDaysRented() - 2)) * 1.5
                 }
 
             case Movie.NEW_RELEASE:
-                thisAmount += Double(each.getDaysRented() * 3)
+                result += Double(aRental.getDaysRented() * 3)
             case Movie.CHILDRENS:
-                thisAmount += 1.5
-                if each.getDaysRented() > 3 {
-                    thisAmount += Double((each.getDaysRented() - 3)) * 1.5
+                result += 1.5
+                if aRental.getDaysRented() > 3 {
+                    result += Double((aRental.getDaysRented() - 3)) * 1.5
                 }
             default:
                 fatalError("❌ unexpected switch case")
         }
 
-        return thisAmount
+        return result
     }
 }
