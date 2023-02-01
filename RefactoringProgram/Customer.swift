@@ -48,10 +48,6 @@ public class Customer {
         return result
     }
 
-    private func amountFor(_ aRental: Rental) -> Double {
-        return aRental.getCharge()
-    }
-
     private func getTotalCharge(_ rentals: [Rental]) -> Double {
         var result: Double = 0.0
 
