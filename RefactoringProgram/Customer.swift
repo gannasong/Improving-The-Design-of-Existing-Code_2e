@@ -35,6 +35,19 @@ public class Customer {
         return result
     }
 
+    public func htmlStatement() -> String {
+        var result = "<H1>Rentals for <EM>" + getName() + "</EM></H1><P>\n"
+
+        for each in rentals {
+            // show figures for each rental
+            result += each.getMovie().getTitle() + ":" + "$\(each.getCharge())" + "<BR>\n"
+        }
+        // add footer lines
+        result += "<P>You owe <EM>" + "$\(getTotalCharge(rentals))" + "</EM><P>\n"
+        result += "On this rental you earned <EM>" + "$\(getTotaIFrequentRenterPoints(rentals))" + "</EM> frequent renter points<P>"
+        return result
+    }
+
     private func amountFor(_ aRental: Rental) -> Double {
         return aRental.getCharge()
     }
