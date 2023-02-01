@@ -48,25 +48,6 @@ public class Customer {
     }
 
     private func amountFor(_ aRental: Rental) -> Double {
-        var result = 0.0
-        switch aRental.getMovie().getPriceCode() {
-            case Movie.REGULAR:
-                result += 2
-                if aRental.getDaysRented() > 2 {
-                    result += Double((aRental.getDaysRented() - 2)) * 1.5
-                }
-
-            case Movie.NEW_RELEASE:
-                result += Double(aRental.getDaysRented() * 3)
-            case Movie.CHILDRENS:
-                result += 1.5
-                if aRental.getDaysRented() > 3 {
-                    result += Double((aRental.getDaysRented() - 3)) * 1.5
-                }
-            default:
-                fatalError("❌ unexpected switch case")
-        }
-
-        return result
+        return aRental.getCharge()
     }
 }

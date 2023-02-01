@@ -23,4 +23,27 @@ public class Rental {
     public func getMovie() -> Movie {
         return movie
     }
+
+    public func getCharge() -> Double {
+        var result = 0.0
+        switch getMovie().getPriceCode() {
+            case Movie.REGULAR:
+                result += 2
+                if getDaysRented() > 2 {
+                    result += Double((getDaysRented() - 2)) * 1.5
+                }
+
+            case Movie.NEW_RELEASE:
+                result += Double(getDaysRented() * 3)
+            case Movie.CHILDRENS:
+                result += 1.5
+                if getDaysRented() > 3 {
+                    result += Double((getDaysRented() - 3)) * 1.5
+                }
+            default:
+                fatalError("❌ unexpected switch case")
+        }
+
+        return result
+    }
 }
