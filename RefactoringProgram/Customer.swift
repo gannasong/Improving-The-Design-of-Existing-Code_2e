@@ -29,26 +29,7 @@ public class Customer {
         var result = "Rental Record for " + getName() + "\n"
 
         for each in rentals {
-            var thisAmount = 0.0
-            // determine amounts for each line
-            switch each.getMovie().getPriceCode() {
-                case Movie.REGULAR:
-                    thisAmount += 2
-                    if each.getDaysRented() > 2 {
-                        thisAmount += Double((each.getDaysRented() - 2)) * 1.5
-                    }
-
-                case Movie.NEW_RELEASE:
-                    thisAmount += Double(each.getDaysRented() * 3)
-                case Movie.CHILDRENS:
-                    thisAmount += 1.5
-                    if each.getDaysRented() > 3 {
-                        thisAmount += Double((each.getDaysRented() - 3)) * 1.5
-                    }
-                default:
-                    fatalError("❌ unexpected switch case")
-            }
-
+            let thisAmount = amountFor(each)
             // add frequent renter points
             frequentRenterPoints += 1
             // add bonus for a two day new release rental
@@ -64,5 +45,28 @@ public class Customer {
         result += "Amount owed is" + " $\(totalAmount)\n"
         result += "You earned" + " [\(frequentRenterPoints)]" + " frequent renter points"
         return result
+    }
+
+    private func amountFor(_ each: Rental) -> Double {
+        var thisAmount = 0.0
+        switch each.getMovie().getPriceCode() {
+            case Movie.REGULAR:
+                thisAmount += 2
+                if each.getDaysRented() > 2 {
+                    thisAmount += Double((each.getDaysRented() - 2)) * 1.5
+                }
+
+            case Movie.NEW_RELEASE:
+                thisAmount += Double(each.getDaysRented() * 3)
+            case Movie.CHILDRENS:
+                thisAmount += 1.5
+                if each.getDaysRented() > 3 {
+                    thisAmount += Double((each.getDaysRented() - 3)) * 1.5
+                }
+            default:
+                fatalError("❌ unexpected switch case")
+        }
+
+        return thisAmount
     }
 }
