@@ -10,27 +10,33 @@ import XCTest
 
 final class RefactoringProgramTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func test_print_statementResultEqualExpectResult() {
+        let sut = Customer(name: "Edward")
+        let expectedResult = anyResult()
+        let anyMovie = anyMovie("Love Actually", 0)
+        let anyRental = anyRental(anyMovie, 1)
+
+        sut.addRental(arg: anyRental)
+        let receivedResult = sut.statement()
+
+        XCTAssertEqual(expectedResult, receivedResult)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    // MARK: - Helpers
+    private func anyMovie(_ title: String, _ priceCode: Int) -> Movie {
+        return Movie(title: title, priceCode: priceCode)
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    private func anyRental(_ movie: Movie, _ daysRented: Int) -> Rental {
+        return Rental(movie: movie, daysRented: daysRented)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    private func anyResult() -> String {
+        return """
+            Rental Record for Edward
+             - Love Actually $2.0
+            Amount owed is $2.0
+            You earned [1] frequent renter points
+            """
     }
-
 }

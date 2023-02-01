@@ -26,7 +26,7 @@ public class Customer {
     public func statement() -> String {
         var totalAmount: Double = 0
         var frequentRenterPoints: Int = 0
-        var result = "Rental Record for" + getName() + "\n"
+        var result = "Rental Record for " + getName() + "\n"
 
         for each in rentals {
             var thisAmount = 0.0
@@ -57,12 +57,12 @@ public class Customer {
                 frequentRenterPoints += 1
             }
             // show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t" + "\(thisAmount)\n"
+            result += " - " + each.getMovie().getTitle() + " $\(thisAmount)\n"
             totalAmount += thisAmount
         }
         // add footer lines
-        result += "Amount owed is " + "\(totalAmount)\n"
-        result += "You earned " + "\(frequentRenterPoints)" + " frequent renter points"
+        result += "Amount owed is" + " $\(totalAmount)\n"
+        result += "You earned" + " [\(frequentRenterPoints)]" + " frequent renter points"
         return result
     }
 }
