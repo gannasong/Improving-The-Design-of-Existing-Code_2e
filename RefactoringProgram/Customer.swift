@@ -24,23 +24,30 @@ public class Customer {
     }
 
     public func statement() -> String {
-        var totalAmount: Double = 0
         var frequentRenterPoints: Int = 0
         var result = "Rental Record for " + getName() + "\n"
 
         for each in rentals {
             frequentRenterPoints += each.getFrequentRenterPoints()
-            // show figures for this rental
             result += " - " + each.getMovie().getTitle() + " $\(each.getCharge())\n"
-            totalAmount += each.getCharge()
         }
         // add footer lines
-        result += "Amount owed is" + " $\(totalAmount)\n"
+        result += "Amount owed is" + " $\(getTotalCharge(rentals))\n"
         result += "You earned" + " [\(frequentRenterPoints)]" + " frequent renter points"
         return result
     }
 
     private func amountFor(_ aRental: Rental) -> Double {
         return aRental.getCharge()
+    }
+
+    private func getTotalCharge(_ rentals: [Rental]) -> Double {
+        var result: Double = 0.0
+
+        for each in rentals {
+            result += each.getCharge()
+        }
+
+        return result
     }
 }
