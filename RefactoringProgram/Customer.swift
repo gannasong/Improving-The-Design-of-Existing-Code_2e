@@ -24,16 +24,14 @@ public class Customer {
     }
 
     public func statement() -> String {
-        var frequentRenterPoints: Int = 0
         var result = "Rental Record for " + getName() + "\n"
 
         for each in rentals {
-            frequentRenterPoints += each.getFrequentRenterPoints()
             result += " - " + each.getMovie().getTitle() + " $\(each.getCharge())\n"
         }
         // add footer lines
         result += "Amount owed is" + " $\(getTotalCharge(rentals))\n"
-        result += "You earned" + " [\(frequentRenterPoints)]" + " frequent renter points"
+        result += "You earned" + " [\(getTotaIFrequentRenterPoints(rentals))]" + " frequent renter points"
         return result
     }
 
@@ -46,6 +44,16 @@ public class Customer {
 
         for each in rentals {
             result += each.getCharge()
+        }
+
+        return result
+    }
+
+    private func getTotaIFrequentRenterPoints(_ rentals: [Rental]) -> Int {
+        var result: Int = 0
+
+        for each in rentals {
+            result += each.getFrequentRenterPoints()
         }
 
         return result
