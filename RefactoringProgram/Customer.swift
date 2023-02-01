@@ -29,7 +29,6 @@ public class Customer {
         var result = "Rental Record for " + getName() + "\n"
 
         for each in rentals {
-            let thisAmount = amountFor(each)
             // add frequent renter points
             frequentRenterPoints += 1
             // add bonus for a two day new release rental
@@ -38,8 +37,8 @@ public class Customer {
                 frequentRenterPoints += 1
             }
             // show figures for this rental
-            result += " - " + each.getMovie().getTitle() + " $\(thisAmount)\n"
-            totalAmount += thisAmount
+            result += " - " + each.getMovie().getTitle() + " $\(each.getCharge())\n"
+            totalAmount += each.getCharge()
         }
         // add footer lines
         result += "Amount owed is" + " $\(totalAmount)\n"
