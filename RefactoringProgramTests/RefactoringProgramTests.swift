@@ -1,14 +1,14 @@
 //
-//  Improving_The_Design_of_Existing_Code_2eTests.swift
-//  Improving-The-Design-of-Existing-Code_2eTests
+//  RefactoringProgramTests.swift
+//  RefactoringProgramTests
 //
-//  Created by SUNG HAO LIN on 2023/1/31.
+//  Created by SUNG HAO LIN on 2023/2/1.
 //
 
 import XCTest
-@testable import Improving_The_Design_of_Existing_Code_2e
+@testable import RefactoringProgram
 
-final class Improving_The_Design_of_Existing_Code_2eTests: XCTestCase {
+final class RefactoringProgramTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
