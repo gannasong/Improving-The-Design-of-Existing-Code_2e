@@ -14,6 +14,7 @@ public class Movie {
     
     private let title: String
     private var priceCode: Int = 0
+    private var price: Price!
 
     public init(title: String, priceCode: Int) {
         self.title = title
@@ -21,11 +22,20 @@ public class Movie {
     }
 
     public func getPriceCode() -> Int {
-        return priceCode
+        return price.getPriceCode()
     }
 
-    public func setPriceCode(_ priceCode: Int) {
-        self.priceCode = priceCode
+    public func setPriceCode(_ arg: Int) {
+        switch arg {
+            case Movie.REGULAR:
+                price = RegularPrice()
+            case Movie.CHILDRENS:
+                price = ChildrensPrice()
+            case Movie.NEW_RELEASE:
+                price = NewReleasePrice()
+            default:
+                fatalError("❌ Incorrect Price Code")
+        }
     }
 
     public func getTitle() -> String {
@@ -33,27 +43,7 @@ public class Movie {
     }
 
     public func getCharge(_ daysRented: Int) -> Double {
-        var result: Double = 0
-        
-        switch getPriceCode() {
-            case Movie.REGULAR:
-                result += 2
-                if daysRented > 2 {
-                    result += Double((daysRented - 2)) * 1.5
-                }
-
-            case Movie.NEW_RELEASE:
-                result += Double(daysRented * 3)
-            case Movie.CHILDRENS:
-                result += 1.5
-                if daysRented > 3 {
-                    result += Double((daysRented - 3)) * 1.5
-                }
-            default:
-                fatalError("❌ unexpected switch case")
-        }
-
-        return result
+        return price.getCharge(daysRented)
     }
 
     public func getFrequentRenterPoints(_ daysRented: Int) -> Int {

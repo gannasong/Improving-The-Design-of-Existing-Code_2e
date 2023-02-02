@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4969B697298BE50100E0AB38 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969B696298BE50100E0AB38 /* Price.swift */; };
+		4969B698298BE50100E0AB38 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969B696298BE50100E0AB38 /* Price.swift */; };
 		49AE1466298A3E2600CD6BBD /* RefactoringProgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49AE145D298A3E2600CD6BBD /* RefactoringProgram.framework */; };
 		49AE146B298A3E2600CD6BBD /* RefactoringProgramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE146A298A3E2600CD6BBD /* RefactoringProgramTests.swift */; };
 		49AE147F298A3EA400CD6BBD /* Rental.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE147E298A3EA400CD6BBD /* Rental.swift */; };
@@ -28,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4969B696298BE50100E0AB38 /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		49AE145D298A3E2600CD6BBD /* RefactoringProgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RefactoringProgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AE1465298A3E2600CD6BBD /* RefactoringProgramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RefactoringProgramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AE146A298A3E2600CD6BBD /* RefactoringProgramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefactoringProgramTests.swift; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 				49AE1481298A3EAF00CD6BBD /* Movie.swift */,
 				49AE1484298A3EB200CD6BBD /* Customer.swift */,
 				49AE147E298A3EA400CD6BBD /* Rental.swift */,
+				4969B696298BE50100E0AB38 /* Price.swift */,
 			);
 			path = RefactoringProgram;
 			sourceTree = "<group>";
@@ -201,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49AE147F298A3EA400CD6BBD /* Rental.swift in Sources */,
+				4969B697298BE50100E0AB38 /* Price.swift in Sources */,
 				49AE1485298A3EB200CD6BBD /* Customer.swift in Sources */,
 				49AE1482298A3EAF00CD6BBD /* Movie.swift in Sources */,
 			);
@@ -213,6 +218,7 @@
 				49AE1480298A3EA400CD6BBD /* Rental.swift in Sources */,
 				49AE1486298A3EB200CD6BBD /* Customer.swift in Sources */,
 				49AE1483298A3EAF00CD6BBD /* Movie.swift in Sources */,
+				4969B698298BE50100E0AB38 /* Price.swift in Sources */,
 				49AE146B298A3E2600CD6BBD /* RefactoringProgramTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
