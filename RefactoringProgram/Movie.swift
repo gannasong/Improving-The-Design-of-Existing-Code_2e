@@ -8,6 +8,7 @@
 import Foundation
 
 public class Movie {
+    public static let None: Int = 99
     public static let REGULAR: Int = 0
     public static let NEW_RELEASE: Int = 1
     public static let CHILDRENS: Int = 2
@@ -33,6 +34,8 @@ public class Movie {
                 price = ChildrensPrice()
             case Movie.NEW_RELEASE:
                 price = NewReleasePrice()
+            case Movie.None:
+                fatalError("❌ Incorrect case")
             default:
                 fatalError("❌ Incorrect Price Code")
         }
@@ -47,10 +50,6 @@ public class Movie {
     }
 
     public func getFrequentRenterPoints(_ daysRented: Int) -> Int {
-        if (getPriceCode() == Movie.NEW_RELEASE) && (daysRented > 1) {
-            return 2
-        } else {
-            return 1
-        }
+        return price.getFrequentRenterPoints(daysRented)
     }
 }
