@@ -13,19 +13,19 @@ public class Movie {
     public static let CHILDRENS: Int = 2
     
     private let title: String
-    private var priceCode: Int
+    private var priceCode: Int = 0
 
     public init(title: String, priceCode: Int) {
         self.title = title
-        self.priceCode = priceCode
+        self.setPriceCode(priceCode)
     }
 
     public func getPriceCode() -> Int {
         return priceCode
     }
 
-    public func setPriceCode(arg: Int) {
-        priceCode = arg
+    public func setPriceCode(_ priceCode: Int) {
+        self.priceCode = priceCode
     }
 
     public func getTitle() -> String {
